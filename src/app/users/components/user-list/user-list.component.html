@@ -1,0 +1,28 @@
+<div class="card-user-container">
+  @for (user of users; track $index; let isEven = $even) {
+
+  <div class="card" style="width: 22rem;" [ngClass]="{'background-dark': isEven}">
+    <img src="{{user.picture.thumbnail}}" class="card-img-top mt-4 mb-3" alt="User image">
+    <div class="card-body">
+      <h5 class="card-title">{{user.name.first}} {{user.name.last}}</h5>
+      <p class="card-text p-2" [ngClass]="{'background-dark': isEven}">
+        <span><b>Country:</b> {{user.location.country}}</span><br>
+        <span><b>City:</b> {{user.location.city}}</span><br>
+        <span><b>Email:</b> {{user.email}}</span><br>
+        <span><b>Phone:</b> {{user.phone}}</span><br>
+        <span><b>Age:</b> {{user.dob.age}}</span>
+      </p>
+      <div class="d-flex gap-3">
+        <button (click)="setSelectedUser(user)" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#details" aria-controls="details">
+          Details
+        </button>
+        <button (click)="deleteUser(user.id.value)" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  }
+</div>
+<!------------------------              OFFCANVAS         -------------------------------->
+<app-user-offcanvas [selectedUser]="selectedUSer"></app-user-offcanvas>

@@ -1,0 +1,5 @@
+<app-user-search (wordToSearchEvent)="setWordToSearch($event)"></app-user-search>
+@if(hasError){
+<p class="text-danger text-center">{{errorMessage}}</p>
+}
+<app-user-list (deleteEvent)="deleteUser($event)" [users]="filteredUsers"></app-user-list>

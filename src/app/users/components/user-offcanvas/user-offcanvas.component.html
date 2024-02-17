@@ -1,0 +1,15 @@
+<div class="offcanvas offcanvas-start" tabindex="-1" id="details" aria-labelledby="offcanvasDetails">
+  <div class="offcanvas-header">
+    <img src="{{selectedUser.picture.thumbnail}}" alt="">
+    <h5 class="offcanvas-title" id="offcanvasDetails">{{selectedUser.name.first}} {{selectedUser.name.last}}</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+
+    @if (isEdit) {
+    <app-offcanvas-edit [selectedUser]="selectedUser"></app-offcanvas-edit>
+    }@else {
+    <app-offcanvas-info [selectedUser]="selectedUser"></app-offcanvas-info>
+    }
+  </div>
+</div>
