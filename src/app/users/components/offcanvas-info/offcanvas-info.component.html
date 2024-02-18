@@ -23,17 +23,3 @@
 <p><b>Username: </b>{{selectedUser.login.username}}</p>
 <p><b>ID: </b>{{selectedUser.login.uuid}}</p>
 }
-
-<div class="dropdown mt-3">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-    Actions
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><a class="dropdown-item" href="#">Edit</a></li>
-    @if(!moreDetails){
-    <li><a class="dropdown-item" (click)="changeMoreDetails()">More details</a></li>
-    }@else {
-    <li><a class="dropdown-item" (click)="changeMoreDetails()">Less details</a></li>
-    }
-  </ul>
-</div>

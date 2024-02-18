@@ -9,10 +9,5 @@ import { Component, Input } from '@angular/core';
 })
 export class OffcanvasInfoComponent {
   @Input() selectedUser: any;
-  moreDetails = false;
-
-  changeMoreDetails() {
-    this.moreDetails = !this.moreDetails;
-  }
-
+  @Input() moreDetails: any;
 }

@@ -1,37 +1,86 @@
-<form action="">
-  <p><b>Gender: </b>{{selectedUser.gender}}</p>
-  <p><b>Age: </b>{{selectedUser.dob.age}}</p>
-  <p><b>Phone: </b>{{selectedUser.phone}}</p>
-  <p><b>Email: </b>{{selectedUser.email}}</p>
+<form [formGroup]="myForm" (ngSubmit)="save()">
+  <p><b>ID: </b>{{selectedUser.login.uuid}}</p>
+
+  <p><label>Username: </label><input type="text" formControlName="username" class="form-control" /></p>
+  @if(!isValidField('username')){
+  <p class="text-danger">
+    {{getErrorField('username')}}
+  </p>
+  }
+
+  <p><label>Gender: </label><input type="text" formControlName="gender" class="form-control" /></p>
+  @if(!isValidField('gender')){
+  <p class="text-danger">
+    {{getErrorField('gender')}}
+  </p>
+  }
+  <p><label>Age: </label><input type="number" formControlName="age" class="form-control" /></p>
+  @if(!isValidField('age')){
+  <p class="text-danger">
+    {{getErrorField('age')}}
+  </p>
+  }
+  <p><label>Phone: </label><input type="phone" formControlName="phone" class="form-control" /></p>
+  @if(!isValidField('phone')){
+  <p class="text-danger">
+    {{getErrorField('phone')}}
+  </p>
+  }
+  <p><label>Email: </label><input type="text" formControlName="email" class="form-control" /></p>
+  @if(!isValidField('email')){
+  <p class="text-danger">
+    {{getErrorField('email')}}
+  </p>
+  }
   <p><b>Location:</b></p>
   <ul>
     <li>
-      <p><b>Country: </b>{{selectedUser.location.country}}</p>
+      <p><label>Country: </label><input type="text" formControlName="country" class="form-control" /></p>
+      @if(!isValidField('country')){
+      <p class="text-danger">
+        {{getErrorField('country')}}
+      </p>
+      }
     </li>
     <li>
-      <p><b>City: </b>{{selectedUser.location.city}}</p>
+      <p><label>City: </label><input type="text" formControlName="city" class="form-control" /></p>
+      @if(!isValidField('city')){
+      <p class="text-danger">
+        {{getErrorField('city')}}
+      </p>
+      }
     </li>
     <li>
-      <p><b>State: </b>{{selectedUser.location.state}}</p>
+      <p><label>State: </label><input type="text" formControlName="state" class="form-control" /></p>
+      @if(!isValidField('state')){
+      <p class="text-danger">
+        {{getErrorField('state')}}
+      </p>
+      }
     </li>
   </ul>
-
   <p><b>Direction:</b></p>
   <ul>
-    <p><b>Street: {{selectedUser.location.street.name}}</b></p>
-    <p><b>Number: {{selectedUser.location.street.number}}</b></p>
+    <li>
+      <p><label>Street: </label><input type="text" formControlName="street" class="form-control" /></p>
+      @if(!isValidField('street')){
+      <p class="text-danger">
+        {{getErrorField('street')}}
+      </p>
+      }
+    </li>
+    <li>
+      <p><label>Number: </label><input type="number" formControlName="number" class="form-control" /></p>
+      @if(!isValidField('number')){
+      <p class="text-danger">
+        {{getErrorField('number')}}
+      </p>
+      }
+    </li>
   </ul>
-  <p><b>Username: </b>{{selectedUser.login.username}}</p>
-  <p><b>ID: </b>{{selectedUser.login.uuid}}</p>
-
-
-  <div class="dropdown mt-3">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-      Actions
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <li><a class="dropdown-item" href="#">Save</a></li>
-      <li><a class="dropdown-item" href="#">Reset</a></li>
-    </ul>
+  <div class="d-flex gap-3">
+    <button type="submit" class="btn btn-info">Save</button>
+    <button type="reset" class="btn btn-warning">Reset</button>
+    <button (click)="exit()" class="btn btn-danger">Exit</button>
   </div>
 </form>

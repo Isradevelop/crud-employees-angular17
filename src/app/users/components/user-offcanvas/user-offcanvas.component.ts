@@ -13,7 +13,11 @@ import { OffcanvasEditComponent } from '../offcanvas-edit/offcanvas-edit.compone
 export class UserOffcanvasComponent {
   @Input() selectedUser: any;
   isEdit = false;
+  moreDetails = false;
 
+  changeMoreDetails() {
+    this.moreDetails = !this.moreDetails;
+  }
   changeIsEdit() {
     this.isEdit = !this.isEdit;
   }

@@ -7,9 +7,22 @@
   <div class="offcanvas-body">
 
     @if (isEdit) {
-    <app-offcanvas-edit [selectedUser]="selectedUser"></app-offcanvas-edit>
+    <app-offcanvas-edit (changeEditEvent)="changeIsEdit()" [selectedUser]="selectedUser"></app-offcanvas-edit>
     }@else {
-    <app-offcanvas-info [selectedUser]="selectedUser"></app-offcanvas-info>
+    <app-offcanvas-info [selectedUser]="selectedUser" [moreDetails]="moreDetails"></app-offcanvas-info>
     }
+    <div class="dropdown mt-3 d-flex gap-3">
+      @if (!isEdit) {
+      @if(!moreDetails){
+
+      <button class="btn btn-secondary" (click)="changeMoreDetails()">More info</button>
+      }@else{
+
+      <button class="btn btn-secondary" (click)="changeMoreDetails()">Less info</button>
+      }
+      <button class="btn btn-warning" (click)="changeIsEdit()">Edit user</button>
+      }
+
+    </div>
   </div>
 </div>
